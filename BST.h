@@ -25,7 +25,7 @@ public:
     void set(std::string key, int data);
     int find(std::string key) const;
     void print() const;
-    void readFromFile(std::string filename);
+    bool readFromFile(std::string filename);
     void saveToFile(std::string filename) const;
     void min() const;
     void max() const;
