@@ -1,0 +1,7 @@
+driver
+*.o
+*~
+\#*\#
+*.txt
+!sherlock.txt
+!poem.txt
