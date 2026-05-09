@@ -118,7 +118,7 @@ void BST::print() const {
     cout << "\n";
 }
 
-void BST::readFromFile(string filename) {
+bool BST::readFromFile(string filename) {
     // Accepts filename with or without .txt extension
     if (filename.size() < 4 || filename.substr(filename.size() - 4) != ".txt") {
         filename += ".txt";
@@ -127,7 +127,7 @@ void BST::readFromFile(string filename) {
     ifstream file(filename);
     if (!file.is_open()) {
         cerr << "Error: could not open \"" << filename << "\"\n";
-        return;
+        return false;
     }
 
     string word;
@@ -146,6 +146,7 @@ void BST::readFromFile(string filename) {
         }
     }
     file.close();
+    return true;
 }
 
 void BST::saveToFile(string filename) const {
