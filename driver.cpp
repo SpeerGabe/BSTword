@@ -1,8 +1,8 @@
 #include "BST.h"
 #include <iostream>
-
+ 
 using namespace std;
-
+ 
 void displayMenu() {
     cout << "\n--- BST Word Frequency Tool ---\n";
     cout << "1. Set a key-value pair\n";
@@ -16,15 +16,15 @@ void displayMenu() {
     cout << "0. Exit\n";
     cout << "Choice: ";
 }
-
+ 
 int main() {
     BST tree;
     int choice;
-
+ 
     do {
         displayMenu();
         cin >> choice;
-
+ 
         if (cin.fail()) {
             cin.clear();
             cin.ignore(1000, '\n');
@@ -32,7 +32,7 @@ int main() {
             choice = -1;
             continue;
         }
-
+ 
         switch (choice) {
             case 1: {
                 string key;
@@ -80,8 +80,9 @@ int main() {
                 string filename;
                 cout << "Enter filename to read (.txt extension optional): ";
                 cin >> filename;
-                tree.readFromFile(filename);
-                cout << "Done. Use option 3 to print or 4 to save results.\n";
+                if (tree.readFromFile(filename)) {
+                    cout << "Done. Use option 3 to print or 4 to save results.\n";
+                }
                 break;
             }
             case 0:
@@ -91,6 +92,6 @@ int main() {
                 cout << "Invalid choice.\n";
         }
     } while (choice != 0);
-
+ 
     return 0;
 }
